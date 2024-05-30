@@ -33,9 +33,9 @@ def main(file_path, n_points):
 
 if __name__ == "__main__":
     file_path = './dataset/augmented/defect/9.859.stl'
-    n_points = 15000
+    n_points = 5000
     main(file_path, n_points)
 
     file_path = './dataset/augmented/non_defect/0.030.stl'
-    n_points = 15000
+    n_points = 5000
     main(file_path, n_points)

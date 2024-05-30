@@ -36,13 +36,13 @@ def twist_model(mesh, angle, twist_height_percent=0.08, smoothness=0.5, axis=(0,
 # Генерируем 500 3D-моделей с разным углом скручивания и сохраняем их
 def generate_and_save_models():
     np.random.seed(42)
-    num_models = 200
+    num_models = 140
     min_angle = -3
     max_angle = 3
 
     for i in range(num_models):
         angle = np.random.uniform(min_angle, max_angle)
-        rounded_angle = round(angle, 3)
+        rounded_angle = round(angle, 4)
 
         # Загружаем эталонную модель (здесь подставьте путь к вашей 3D-модели)
         mesh = trimesh.load('./dataset/original/Эталон.stl')
@@ -51,7 +51,7 @@ def generate_and_save_models():
         mesh_twisted = twist_model(mesh.copy(), angle)
 
         # Определяем папку для сохранения модели в зависимости от угла скручивания
-        save_directory = './dataset/augmented/non_defect' if abs(angle) <= 3 else './dataset/augmented/defect'
+        save_directory = './dataset2/augmented/non_defect' if abs(angle) <= 3 else './dataset2/augmented/defect'
 
         # Сохраняем модель в файл
         file_name = os.path.join(save_directory, f'{rounded_angle:.3f}.stl')
