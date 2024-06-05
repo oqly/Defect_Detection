@@ -20,7 +20,7 @@ def twist_model(mesh, angle, twist_height_percent=0.08, smoothness=0.5, axis=(0,
     twist_height = min_z + (max_z - min_z) * twist_height_percent
 
     # Создаем матрицу поворота
-    rotation_matrix = trimesh.transformations.rotation_matrix(angle_rad, axis)
+    #rotation_matrix = trimesh.transformations.rotation_matrix(angle_rad, axis)
 
     # Применяем поворот к вершинам модели, с плавным переходом для верхней части
     for i, vertex in enumerate(mesh.vertices):

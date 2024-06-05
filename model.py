@@ -7,7 +7,8 @@ from keras import regularizers
 from keras.models import load_model
 
 
-currentModel = 'model_fold_096_2.keras'
+currentModel = 'model_fold_094_f096.keras'
+#model_fold_096_2.keras
 #model_dd_2405.keras
 #model_dd_1105_098_100ds_32bs.keras
 #model_dd_2705_1.keras
