@@ -9,18 +9,13 @@ def smoothstep(x, min_val, max_val):
 
 
 def twist_model(mesh, angle, twist_height_percent=0.08, smoothness=0.5, axis=(0, 0, 1)):
-    # Positive angle - counter clockwise,
-    # Negative angle - clockwise,
 
-    # Переводим  уголв радианы с помощью numpy
+    # Переводим уголы в радианы с помощью numpy
     angle_rad = np.radians(angle)
 
     # Определяем граничную высоту для скручивания
     min_z, max_z = mesh.bounds[:, 2]
     twist_height = min_z + (max_z - min_z) * twist_height_percent
-
-    # Создаем матрицу поворота
-    #rotation_matrix = trimesh.transformations.rotation_matrix(angle_rad, axis)
 
     # Применяем поворот к вершинам модели, с плавным переходом для верхней части
     for i, vertex in enumerate(mesh.vertices):
@@ -33,7 +28,7 @@ def twist_model(mesh, angle, twist_height_percent=0.08, smoothness=0.5, axis=(0,
     return mesh
 
 
-# Генерируем 500 3D-моделей с разным углом скручивания и сохраняем их
+# Генерируем 3D-модели с разным углом скручивания и сохраняем их
 def generate_and_save_models():
     np.random.seed(42)
     num_models = 140
@@ -44,7 +39,7 @@ def generate_and_save_models():
         angle = np.random.uniform(min_angle, max_angle)
         rounded_angle = round(angle, 4)
 
-        # Загружаем эталонную модель (здесь подставьте путь к вашей 3D-модели)
+        # Загружаем эталонную модель
         mesh = trimesh.load('./dataset/original/Эталон.stl')
 
         # Применяем скручивание к модели
