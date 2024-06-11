@@ -9,11 +9,8 @@ from keras.models import load_model
 
 currentModel = 'model_fold_094_f096.keras'
 #model_fold_096_2.keras
-#model_dd_2405.keras
-#model_dd_1105_098_100ds_32bs.keras
-#model_dd_2705_1.keras
 
-# Регистрация пользовательского регуляризатора
+# Регистрация регуляризатора
 @tf.keras.utils.register_keras_serializable()
 class OrthogonalRegularizer(regularizers.Regularizer):
     def __init__(self, num_features, l2reg=0.001):
